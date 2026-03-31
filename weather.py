@@ -2,9 +2,9 @@ import requests
 
 def get_weather(city):
     try:
-        # Step 1: Get coordinates
+        # 🌍 Step 1: Get coordinates from city name
         geo_url = f"https://geocoding-api.open-meteo.com/v1/search?name={city}"
-        geo_res = requests.get(geo_url).json()
+        geo_res = requests.get(geo_url, timeout=5).json()
 
         if "results" not in geo_res:
             return {
@@ -16,13 +16,12 @@ def get_weather(city):
         lat = geo_res["results"][0]["latitude"]
         lon = geo_res["results"][0]["longitude"]
 
-        # Step 2: Get weather
+        # 🌤️ Step 2: Get weather data
         weather_url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current_weather=true"
-        weather_res = requests.get(weather_url).json()
+        weather_res = requests.get(weather_url, timeout=5).json()
 
-        print(weather_res)  # DEBUG
+        print("DEBUG:", weather_res)  # optional (logs me dikhega)
 
-        # SAFE ACCESS
         current = weather_res.get("current_weather")
 
         if not current:
@@ -32,17 +31,31 @@ def get_weather(city):
                 "description": "Weather not available ⚠️"
             }
 
+        temp = current.get("temperature")
+
+        # 🌱 Simple irrigation logic
+        if temp is not None:
+            if temp > 30:
+                advice = "💧 Irrigation recommended (Hot weather)"
+            elif temp < 10:
+                advice = "❄️ No irrigation needed (Cold weather)"
+            else:
+                advice = "🌿 Moderate conditions, irrigation optional"
+        else:
+            advice = "⚠️ No advice available"
+
         return {
             "city": city,
-            "temp": current.get("temperature"),
-            "description": "Live weather 🌤️"
+            "temp": temp,
+            "description": "Live weather 🌤️",
+            "advice": advice
         }
 
     except Exception as e:
-        print(e)
+        print("ERROR:", e)
         return {
             "city": city,
             "temp": "Error",
-            "description": "Something went wrong ❌"
+            "description": "Something went wrong ❌",
+            "advice": "⚠️ Try again later"
         }
-    
