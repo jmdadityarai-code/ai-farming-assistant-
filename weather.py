@@ -24,6 +24,9 @@ def get_weather(city):
 
         current = weather_res.get("current_weather")
 
+# fallback (IMPORTANT)
+if not current:
+    current = weather_res.get("current")
         if not current:
             return {
                 "city": city,
@@ -31,7 +34,7 @@ def get_weather(city):
                 "description": "Weather not available ⚠️"
             }
 
-        temp = current.get("temperature")
+        temp = current.get("temperature") if current else None
 
         # 🌱 Simple irrigation logic
         if temp is not None:
