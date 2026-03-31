@@ -37,3 +37,6 @@ def home():
 
 if __name__ == "__main__":
     app.run(debug=True, port=5051)  # 5051 ya koi bhi free port
+    @app.route("/", methods=["GET", "POST"])
+def home():
+    return "OK TEST"
