@@ -1,24 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>AI Farming Assistant</title>
+    <title>AI Farming Assistant | Weather + Irrigation Advice</title>
+
+    <!-- ✅ Google Verification -->
+    <meta name="google-site-verification" content="w-7aXCsEoPGzszun3FqWIgXEWqdXV83cUqJNuWIr7f0" />
+
+    <!-- SEO -->
+    <meta name="description" content="AI Farming Assistant gives weather updates and irrigation advice for farmers.">
+
 </head>
-<meta name="google-site-verification" content="w-7aXCsEoPGzszun3FqWIgXEWqdXV83cUqJNuWIr7f0" />
+
 <body>
 
-<h1>🌱 AI Farming Assistant</h1>
+    <h1>🌱 AI Farming Assistant</h1>
 
-<form method="POST">
-    <input type="text" name="city" placeholder="Enter city">
-    <button type="submit">Check Weather</button>
-</form>
+    <form method="POST">
+        <input type="text" name="city" placeholder="Enter city" required>
+        <button type="submit">Check Weather</button>
+    </form>
 
-{% if weather %}
-    <h2>{{ weather.city }}</h2>
-    <p>{{ weather.temp }} °C</p>
-    <p>{{ weather.description }}</p>
-    <p>{{ weather.advice }}</p>
-{% endif %}
+    {% if weather %}
+        <h2>{{ weather.city }}</h2>
+        <p>{{ weather.temp }}</p>
+        <p>{{ weather.description }}</p>
+        <p>{{ weather.advice }}</p>
+    {% endif %}
 
 </body>
 </html>
