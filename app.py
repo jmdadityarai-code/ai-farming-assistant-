@@ -1,7 +1,15 @@
-from flask import Flask
+from flask import Flask, render_template, request
+from weather import get_weather
 
 app = Flask(__name__)
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 def home():
-    return "HELLO BHAI WORKING 🔥"
+    weather = None
+
+    if request.method == "POST":
+        city = request.form.get("city")
+        if city:
+            weather = get_weather(city)
+
+    return render_template("index.html", weather=weather)
