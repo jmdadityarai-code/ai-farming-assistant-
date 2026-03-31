@@ -1,11 +1,43 @@
 body {
-    background: black;
-    color: white;
+    font-family: Arial, sans-serif;
     text-align: center;
-    font-family: Arial;
+    background: #f5f7fa;
 }
 
-input, button {
+/* Heading */
+h1 {
+    font-size: 40px;
+    margin-top: 30px;
+}
+
+/* City name */
+h2 {
+    font-size: 32px;
+}
+
+/* Weather text */
+p {
+    font-size: 22px;
+}
+
+/* Input box */
+input {
+    font-size: 18px;
     padding: 10px;
-    margin: 10px;
+    width: 250px;
+}
+
+/* Button */
+button {
+    font-size: 18px;
+    padding: 10px 20px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: darkgreen;
 }
