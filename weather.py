@@ -15,7 +15,7 @@ def get_weather(city):
     weather_url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current_weather=true"
     weather_res = requests.get(weather_url).json()
 
-    temp = weather_res["current_weather"]["temperature"]
+    temp = weather_res["current"]["temperature_2m"]
 
     return {
         "city": city,
