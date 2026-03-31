@@ -9,7 +9,6 @@ def home():
 
     if request.method == "POST":
         city = request.form.get("city")
-
         if city:
             weather = get_weather(city)
 
@@ -17,4 +16,3 @@ def home():
 
 if __name__ == "__main__":
     app.run(debug=True)
-    
