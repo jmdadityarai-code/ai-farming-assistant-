@@ -1,36 +1,47 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>AI Farming Assistant | Weather + Irrigation Advice</title>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #f5f7fa;
+}
 
-    <!-- ✅ Google Verification -->
-    <meta name="google-site-verification" content="w-7aXCsEoPGzszun3FqWIgXEWqdXV83cUqJNuWIr7f0" />
+/* Heading */
+h1 {
+    font-size: 40px;
+    margin-top: 30px;
+}
 
-    <!-- SEO -->
-    <meta name="description" content="AI Farming Assistant gives weather updates and irrigation advice for farmers.">
+/* City name */
+h2 {
+    font-size: 32px;
+}
 
-</head>
+/* Weather text */
+p {
+    font-size: 22px;
+}
 
-<body>
+/* Input box */
+input {
+    font-size: 18px;
+    padding: 10px;
+    width: 250px;
+}
 
-    <h1>🌱 AI Farming Assistant</h1>
+/* Button */
+button {
+    font-size: 18px;
+    padding: 10px 20px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
 
-    <form method="POST">
-        <input type="text" name="city" placeholder="Enter city" required>
-        <button type="submit">Check Weather</button>
-    </form>
-
-    {% if weather %}
-        <h2>{{ weather.city }}</h2>
-        <p>{{ weather.temp }}</p>
-        <p>{{ weather.description }}</p>
-        <p>{{ weather.advice }}</p>
-    {% endif %}
-
-</body>
-</html>
-        
-
+button:hover {
+    background: darkgreen;
+}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     
 
     

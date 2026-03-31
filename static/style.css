@@ -41,3 +41,40 @@ button {
 button:hover {
     background: darkgreen;
 }
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #f5f7fa;
+}
+
+h1 {
+    font-size: 40px;
+    margin-top: 30px;
+}
+
+h2 {
+    font-size: 32px;
+}
+
+p {
+    font-size: 22px;
+}
+
+input {
+    font-size: 18px;
+    padding: 10px;
+    width: 250px;
+}
+
+button {
+    font-size: 18px;
+    padding: 10px 20px;
+    background: green;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+button:hover {
+    background: darkgreen;
+}
