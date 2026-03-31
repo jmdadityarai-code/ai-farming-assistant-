@@ -17,12 +17,13 @@ def get_weather(city):
         lat = geo_res["results"][0]["latitude"]
         lon = geo_res["results"][0]["longitude"]
 
-        # Step 2: Get weather
-        weather_url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current_weather=true"
+        # ✅ NEW API FORMAT
+        weather_url = f"https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current=temperature_2m"
         weather_res = requests.get(weather_url, timeout=5).json()
 
-        # Safe fetch
-        current = weather_res.get("current_weather")
+        print("DEBUG:", weather_res)
+
+        current = weather_res.get("current")
 
         if not current:
             return {
@@ -32,7 +33,7 @@ def get_weather(city):
                 "advice": "⚠️ Try later"
             }
 
-        temp = current.get("temperature")
+        temp = current.get("temperature_2m")
 
         # Irrigation logic
         if temp is not None:
