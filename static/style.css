@@ -6,25 +6,28 @@ body {
 
 /* Heading */
 h1 {
-    font-size: 40px;
-    margin-top: 30px;
+    font-size: 42px;
+    margin-top: 40px;
 }
 
-/* City name */
+/* City */
 h2 {
     font-size: 32px;
+    margin-top: 20px;
 }
 
-/* Weather text */
+/* Text */
 p {
     font-size: 22px;
 }
 
-/* Input box */
+/* Input */
 input {
     font-size: 18px;
     padding: 10px;
-    width: 250px;
+    width: 260px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
 }
 
 /* Button */
@@ -35,44 +38,8 @@ button {
     color: white;
     border: none;
     border-radius: 8px;
+    margin-left: 10px;
     cursor: pointer;
-}
-
-button:hover {
-    background: darkgreen;
-}
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background: #f5f7fa;
-}
-
-h1 {
-    font-size: 40px;
-    margin-top: 30px;
-}
-
-h2 {
-    font-size: 32px;
-}
-
-p {
-    font-size: 22px;
-}
-
-input {
-    font-size: 18px;
-    padding: 10px;
-    width: 250px;
-}
-
-button {
-    font-size: 18px;
-    padding: 10px 20px;
-    background: green;
-    color: white;
-    border: none;
-    border-radius: 8px;
 }
 
 button:hover {
