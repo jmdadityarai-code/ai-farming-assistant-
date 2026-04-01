@@ -1,34 +1,17 @@
-import requests
+@app.route("/", methods=["GET", "POST"])
+def home():
+    weather = None
 
-def get_weather(city):
-    try:
-        url = f"https://wttr.in/{city}?format=3"
-        res = requests.get(url).text
+    if request.method == "POST":
+        city = request.form.get("city")
+        print("CITY:", city)
 
-        # Example response: "London: +9°C"
-        parts = res.split(":")
-        if len(parts) < 2:
-            return {
-                "city": city,
-                "temp": "N/A",
-                "description": "Weather not found ❌",
-                "advice": "⚠️ Try again"
-            }
-
-        temp = parts[1].strip()
-
-        return {
+        # 🔥 TEST DATA (force)
+        weather = {
             "city": city,
-            "temp": temp,
-            "description": "Live weather 🌤️",
-            "advice": "🌿 Farming conditions normal"
+            "temp": "25°C",
+            "description": "Test Weather",
+            "advice": "Test Advice"
         }
 
-    except Exception as e:
-        print("ERROR:", e)
-        return {
-            "city": city,
-            "temp": "N/A",
-            "description": "Error fetching weather ❌",
-            "advice": "⚠️ Try again"
-        }
+    return render_template("index.html", weather=weather)
